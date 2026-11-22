@@ -31,3 +31,11 @@ body{overflow-x:clip}
 .lb-close{top:18px;right:18px;font-size:18px}.lb-prev{left:18px;top:50%;transform:translateY(-50%)}.lb-next{right:18px;top:50%;transform:translateY(-50%)}
 .lb-prev:hover,.lb-next:hover,.lb-close:hover{background:var(--red);border-color:var(--red)}
 @media(max-width:560px){.lb-prev,.lb-next{top:auto;bottom:18px;transform:none}.lightbox img{max-height:70vh}}
+.translated{margin:0 0 15px;border:1px solid #2c2a30;background:#0f0f12;border-radius:3px}
+.translated summary{cursor:pointer;padding:10px 12px;font-size:12px;font-weight:700;color:#f06a72;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.translated summary::-webkit-details-marker{display:none}
+.translated summary::after{content:"+";font-size:16px;color:#aaa;transition:.2s}
+.translated[open] summary::after{content:"−"}
+.translated ul{margin:0;padding:2px 14px 14px 28px;font-size:12px;line-height:1.65;color:#c4bfc1}
+.translated li{margin:6px 0}.translated li b{color:#f3f1f0;font-weight:600}
+.project-grid{align-items:start}
