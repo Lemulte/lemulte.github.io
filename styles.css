@@ -53,3 +53,4 @@ body{overflow-x:clip}
 .project-info .changes-title{margin:12px 14px 2px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#f3f1f0}
 .translated.changes ul{padding-top:0}
 .translated i{font-style:normal;color:#f3f1f0}
+.translated ul.sublist{padding:4px 0 0 18px;list-style:circle}.translated ul.sublist li{margin:3px 0}
