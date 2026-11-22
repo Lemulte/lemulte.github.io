@@ -4,7 +4,7 @@
    Ejemplo: instagram: "https://www.instagram.com/lemulte_traducciones"
    ========================================================= */
 const REDES = {
-  instagram: "",
+  instagram: "https://www.instagram.com/lemulte/",
   x: "",
   discord: "",
   youtube: ""
