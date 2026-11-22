@@ -63,3 +63,19 @@ document.querySelectorAll('.count-total').forEach(el => el.textContent = cards.l
 document.querySelectorAll('.cover-number').forEach((el, i) => el.textContent = pad(i + 1));
 
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// PORTADAS: sube una imagen a la carpeta "img" con el nombre que pone en data-img
+// (por ejemplo img/caligula-effect-2.jpg) y aparece sola. Vale .jpg, .png o .webp.
+// Si no hay imagen, se queda la portada de colores con el texto.
+document.querySelectorAll('.cover[data-img]').forEach(cover => {
+  const exts = ['jpg', 'png', 'webp', 'jpeg'];
+  const intentar = i => {
+    if (i >= exts.length) return;
+    const url = `img/${cover.dataset.img}.${exts[i]}`;
+    const im = new Image();
+    im.onload = () => { cover.style.backgroundImage = `url("${url}")`; cover.classList.add('has-img'); };
+    im.onerror = () => intentar(i + 1);
+    im.src = url;
+  };
+  intentar(0);
+});

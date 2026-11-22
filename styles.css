@@ -21,3 +21,4 @@
 body{position:relative}html{overflow-x:clip}
 body{overflow-x:clip}
 .improved{color:#f06a72;font-weight:600}
+.cover.has-img{background-size:cover;background-position:center}.cover.has-img .cover-kicker,.cover.has-img strong,.cover.has-img small{display:none}
