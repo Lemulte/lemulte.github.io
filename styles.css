@@ -54,3 +54,16 @@ body{overflow-x:clip}
 .translated.changes ul{padding-top:0}
 .translated i{font-style:normal;color:#f3f1f0}
 .translated ul.sublist{padding:4px 0 0 18px;list-style:circle}.translated ul.sublist li{margin:3px 0}
+.top-banner{max-width:var(--max);margin:28px auto 0;padding:0 28px}
+.top-banner img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid #3a1d23;box-shadow:0 20px 60px #0008,0 0 40px #e12a3522}
+.top-banner+.hero{padding-top:55px;min-height:0}
+@media(max-width:560px){.top-banner{margin-top:16px;padding:0 14px}.top-banner+.hero{padding-top:40px}}
+.top-banner+.hero{grid-template-columns:1fr;padding-bottom:70px}
+.top-banner+.hero .hero-copy{display:grid;grid-template-columns:1.1fr .9fr;column-gap:60px;align-items:end}
+.top-banner+.hero .eyebrow,.top-banner+.hero h1{grid-column:1}
+.top-banner+.hero .hero-lead,.top-banner+.hero .hero-actions,.top-banner+.hero .hero-meta{grid-column:2}
+.top-banner+.hero h1{grid-row:2 / span 3;margin-bottom:0}
+.top-banner+.hero .hero-lead{grid-row:2;align-self:end;font-size:17px}
+.top-banner+.hero .hero-actions{grid-row:3}
+.top-banner+.hero .hero-meta{grid-row:4;margin-top:24px}
+@media(max-width:800px){.top-banner+.hero .hero-copy{display:block}}
