@@ -39,3 +39,4 @@ body{overflow-x:clip}
 .translated ul{margin:0;padding:2px 14px 14px 28px;font-size:12px;line-height:1.65;color:#c4bfc1}
 .translated li{margin:6px 0}.translated li b{color:#f3f1f0;font-weight:600}
 .project-grid{align-items:start}
+.project-info .translated-note{margin:0 14px 14px;padding:10px 12px;border-left:2px solid var(--red);background:#18141a;font-size:12px;line-height:1.6;color:#c4bfc1}
