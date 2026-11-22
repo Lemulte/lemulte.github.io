@@ -40,3 +40,11 @@ body{overflow-x:clip}
 .translated li{margin:6px 0}.translated li b{color:#f3f1f0;font-weight:600}
 .project-grid{align-items:start}
 .project-info .translated-note{margin:0 14px 14px;padding:10px 12px;border-left:2px solid var(--red);background:#18141a;font-size:12px;line-height:1.6;color:#c4bfc1}
+.brand-logo{width:44px;height:44px;border-radius:6px;display:block;box-shadow:0 6px 22px #e12a3533}
+.hero-logo{position:relative;z-index:1;width:min(330px,80%);height:auto;aspect-ratio:1;border-radius:10px;box-shadow:0 20px 60px #000a,0 0 0 1px #ffffff15}
+.hero-art .art-caption{z-index:2;text-shadow:0 2px 8px #000}
+.about-mark{padding:0;overflow:hidden;background:none;border:0}
+.about-mark img{width:100%;height:100%;object-fit:contain;display:block;border-radius:8px}
+@media(max-width:800px){.hero-art{height:380px}}
+@media(max-width:560px){.hero-art{height:330px}.about-mark{height:auto;aspect-ratio:1}}
+.about-mark{height:auto;aspect-ratio:1}
