@@ -1,0 +1,93 @@
+LEMULTE — WEB OFICIAL (VERSIÓN 3)
+==================================
+
+ARCHIVOS
+- index.html   → la página
+- styles.css   → el diseño
+- script.js    → menú, filtros, contadores y REDES SOCIALES
+- favicon.svg  → el iconito de la pestaña del navegador
+- og-image.png → la imagen que sale al compartir el enlace en X, Discord, WhatsApp...
+
+CAMBIOS RESPECTO A LA V2
+- El filtro decía "Todos 06" con 7 juegos: ahora los números se cuentan solos.
+- El enlace de Murders on the Yangtze River llevaba a la portada de MediaFire,
+  no a un archivo: ahora pone "Descarga por añadir" hasta que pongas el bueno.
+- Textos pequeños (8–10 px) agrandados para que se lean bien en el móvil.
+- Arreglado un desbordamiento lateral en móvil.
+- Añadidos favicon, imagen de vista previa y etiquetas para buscadores.
+- Sitio preparado para Instagram, X, Discord y YouTube (ver abajo).
+
+
+1) PONER TUS REDES (2 minutos)
+------------------------------
+Abre script.js con el Bloc de notas y rellena arriba del todo:
+
+  const REDES = {
+    instagram: "https://www.instagram.com/lemulte			",
+    x: "https://x.com/TU_USUARIO",
+    discord: "",
+    youtube: ""
+  };
+
+Lo que dejes vacío ("") no aparece. Los botones salen solos en
+"Sobre Lemulte" y en el pie de página.
+
+
+2) AÑADIR UN ENLACE DE DESCARGA
+-------------------------------
+En index.html busca el juego y cambia:
+  <span class="link-pending">Descarga por añadir</span>
+por:
+  <a href="URL_DE_TU_MEDIAFIRE" target="_blank" rel="noopener">Descargar parche ↗</a>
+
+
+3) AÑADIR UNA TRADUCCIÓN NUEVA
+------------------------------
+Copia un bloque <article class="project-card" ...> ... </article> entero,
+pégalo debajo y cambia el título, la plataforma y los enlaces.
+data-platform="pc" o data-platform="ps2". Los contadores se actualizan solos.
+
+
+4) PUBLICARLA GRATIS
+--------------------
+OPCIÓN A — Netlify Drop (la más fácil, sin saber nada)
+  1. Ve a https://app.netlify.com/drop
+  2. Arrastra la CARPETA entera (descomprimida) a la página.
+  3. Crea una cuenta gratis para que no se borre a la hora.
+  4. En "Site configuration" → "Change site name" ponle "lemulte".
+     Tu web quedará en: https://lemulte.netlify.app
+  Para actualizar: "Deploys" → arrastra la carpeta otra vez.
+
+OPCIÓN B — GitHub Pages (la más estable a largo plazo)
+  1. Crea cuenta en github.com con usuario "lemulte".
+  2. Nuevo repositorio llamado exactamente: lemulte.github.io
+  3. "Add file" → "Upload files" → sube todos los archivos → "Commit".
+  4. Espera 1–2 minutos: https://lemulte.github.io
+  Para actualizar: sube de nuevo el archivo cambiado.
+
+(Opcional) Dominio propio tipo lemulte.com: unos 10–15 €/año.
+No hace falta para empezar.
+
+
+5) QUE GOOGLE TE ENCUENTRE
+--------------------------
+  1. Con la web ya publicada, entra en https://search.google.com/search-console
+  2. "Añadir propiedad" → "Prefijo de la URL" → pega tu dirección.
+  3. Verifica (con Netlify/GitHub lo más fácil es el método "Etiqueta HTML":
+     te da una línea <meta ...> que se pega en index.html dentro de <head>).
+  4. "Inspección de URLs" → pega tu web → "Solicitar indexación".
+  Tarda de días a un par de semanas en aparecer.
+
+  Lo que más ayuda a subir en Google: que te enlacen. Pon el enlace de tu web
+  en tu perfil de Biblioteca de Traducciones, Ko-fi, Instagram, X, en el
+  README / nota de cada parche y en los hilos de foros donde publiques.
+
+
+6) DESPUÉS DE PUBLICAR (opcional, mejora la vista previa)
+---------------------------------------------------------
+En index.html cambia las dos líneas con og-image.png para poner la
+dirección completa, por ejemplo:
+  content="https://lemulte.netlify.app/og-image.png"
+Algunas redes (X, WhatsApp) solo muestran la imagen con la dirección completa.
+
+La web no aloja los parches: enlaza a los servicios donde están publicados.
