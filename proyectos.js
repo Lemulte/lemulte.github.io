@@ -12,9 +12,10 @@ const EN_DESARROLLO = [
     juego: "Conception PLUS: Maidens of the Twelve Stars",
     plataforma: "PC · STEAM",
     steam: 906510,
-    porcentaje: 0,
-    estado: "Empezando",
+    porcentaje: 43,
+    estado: "Traduciendo",
     novedades: [
+      { fecha: "2026-11-23", texto: "Ya está en castellano la ruta completa de Tarua, la cartera más rápida (y más torpe) de Granvania." },
       { fecha: "2026-11-23", texto: "¡Proyecto anunciado! Empieza la traducción al castellano." }
     ]
   }
