@@ -16,6 +16,7 @@ const EN_DESARROLLO = [
     estado: "Traduciendo",
     novedades: [
       { fecha: "2026-11-23", texto: "Ya está en castellano la ruta completa de Tarua, la cartera más rápida (y más torpe) de Granvania." },
+      { fecha: "2026-11-23", texto: "¡Ya están en castellano los menús principales, la tienda, las misiones y cientos de objetos del juego!" },
       { fecha: "2026-11-23", texto: "¡Proyecto anunciado! Empieza la traducción al castellano." }
     ]
   }
