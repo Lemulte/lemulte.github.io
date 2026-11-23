@@ -153,18 +153,8 @@ document.querySelectorAll('.project-card').forEach(async card => {
   cover.addEventListener('click', () => abrir(fotos, t));
 });
 
-/* =========================================================
-   PENDIENTES — juegos pedidos por la comunidad y tus pendientes.
-   estado: "Pedido", "En estudio" o "Traduciendo"
-   Ejemplo:
-   { juego: "Persona 2", plataforma: "PSP", estado: "Pedido" }
-   ========================================================= */
-const PENDIENTES = {
-  comunidad: [],
-  mios: []
-};
 
-const ESTADOS = { 'Pedido': 'st-pedido', 'En estudio': 'st-estudio', 'Traduciendo': 'st-traduciendo' };
+const ESTADOS = { 'Pedido': 'st-pedido', 'En estudio': 'st-estudio', 'Próximamente': 'st-estudio', 'Traduciendo': 'st-traduciendo' };
 document.querySelectorAll('.pending-grid').forEach(grid => {
   const lista = PENDIENTES[grid.dataset.list] || [];
   if (!lista.length) {
@@ -176,7 +166,7 @@ document.querySelectorAll('.pending-grid').forEach(grid => {
   lista.forEach(j => {
     const d = document.createElement('div');
     d.className = 'pending-card';
-    d.innerHTML = `<span class="pending-platform"></span><b></b><span class="pending-status ${ESTADOS[j.estado] || 'st-pedido'}"></span>`;
+    d.innerHTML = (j.steam ? `<img class="pending-img" alt="" loading="lazy" src="https://shared.steamstatic.com/store_item_assets/steam/apps/${j.steam}/header.jpg">` : '') + `<span class="pending-platform"></span><b></b><span class="pending-status ${ESTADOS[j.estado] || 'st-pedido'}"></span>`;
     d.querySelector('.pending-platform').textContent = j.plataforma || '';
     d.querySelector('b').textContent = j.juego;
     d.querySelector('.pending-status').textContent = j.estado || 'Pedido';
@@ -233,3 +223,37 @@ if (form) {
     } finally { btn.disabled = false; btn.textContent = 'Enviar mensaje'; }
   });
 }
+
+/* EN DESARROLLO — se pinta a partir de EN_DESARROLLO (proyectos.js) */
+(() => {
+  const cont = document.querySelector('.development-list');
+  if (!cont || typeof EN_DESARROLLO === 'undefined' || !EN_DESARROLLO.length) return;
+  document.querySelector('.development-empty')?.remove();
+  const fmt = f => { const [y, m, d] = f.split('-'); return `${d}/${m}/${y}`; };
+  EN_DESARROLLO.forEach(p => {
+    const pct = Math.max(0, Math.min(100, Number(p.porcentaje) || 0));
+    const card = document.createElement('article');
+    card.className = 'dev-card';
+    card.innerHTML = `
+      ${p.steam ? `<img class="dev-img" alt="" src="https://shared.steamstatic.com/store_item_assets/steam/apps/${p.steam}/header.jpg">` : ''}
+      <div class="dev-body">
+        <div class="dev-top"><span class="dev-platform"></span><span class="dev-status"></span></div>
+        <h3></h3>
+        <div class="dev-progress"><div class="dev-bar"><span style="width:${pct}%"></span></div><b>${pct}%</b></div>
+        <div class="dev-news"><p class="dev-news-title">Novedades</p><ul></ul></div>
+      </div>`;
+    card.querySelector('.dev-platform').textContent = p.plataforma || '';
+    card.querySelector('.dev-status').textContent = p.estado || 'Traduciendo';
+    card.querySelector('h3').textContent = p.juego;
+    const ul = card.querySelector('ul');
+    (p.novedades || []).forEach(n => {
+      const li = document.createElement('li');
+      li.innerHTML = '<time></time><span></span>';
+      li.querySelector('time').textContent = fmt(n.fecha);
+      li.querySelector('span').textContent = n.texto;
+      ul.appendChild(li);
+    });
+    if (!ul.children.length) card.querySelector('.dev-news').remove();
+    cont.appendChild(card);
+  });
+})();
