@@ -16,6 +16,7 @@ const EN_DESARROLLO = [
     estado: "Traduciendo",
     novedades: [
       { fecha: "2026-11-23", texto: "Ya está en castellano la ruta completa de Tarua, la cartera más rápida (y más torpe) de Granvania." },
+      { fecha: "2026-11-23", texto: "¡Terminados todos los menús, objetos, técnicas y laberintos! El siguiente paso es la historia." },
       { fecha: "2026-11-23", texto: "¡Casi todos los menús, objetos y laberintos ya están en español; quedan solo tres bloques para empezar con la historia!" },
       { fecha: "2026-11-23", texto: "¡Ya está traducida la mitad de los menús y objetos, y las Doncellas Estelares ya hablan en español en sus encargos!" },
       { fecha: "2026-11-23", texto: "¡Ya están en español los menús principales, la tienda, las misiones y cientos de objetos del juego!" },
