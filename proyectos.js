@@ -16,6 +16,7 @@ const EN_DESARROLLO = [
     estado: "Traduciendo",
     novedades: [
       { fecha: "2026-11-23", texto: "Ya está en castellano la ruta completa de Tarua, la cartera más rápida (y más torpe) de Granvania." },
+      { fecha: "2026-11-23", texto: "¡La historia principal ya está completa en español, del prólogo al final! Ahora vamos con la academia y las rutas de las Doncellas." },
       { fecha: "2026-11-23", texto: "¡Las 13 Doncellas ya reaccionan en español al descubrir la Unión triple! La trama principal está casi terminada." },
       { fecha: "2026-11-23", texto: "¡Ya están en español la exploración de los laberintos, los avisos de los 12 jefes y las fiestas de cada estación!" },
       { fecha: "2026-11-23", texto: "¡La trama principal ya puede jugarse en español de principio a fin, combate final y desenlace incluidos!" },
