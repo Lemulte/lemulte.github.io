@@ -16,6 +16,8 @@ const EN_DESARROLLO = [
     estado: "Traduciendo",
     novedades: [
       { fecha: "2026-11-23", texto: "Ya está en castellano la ruta completa de Tarua, la cartera más rápida (y más torpe) de Granvania." },
+      { fecha: "2026-11-23", texto: "Terminada la ruta de Arie, la Doncella de Aries, con su gran secreto escondido en la sala prohibida de la iglesia." },
+      { fecha: "2026-11-23", texto: "Ruta de Mahiru completa en castellano, con todas sus citas, mensajes y eventos especiales." },
       { fecha: "2026-11-23", texto: "Empiezan las rutas de las Doncellas: ya está en castellano la historia de Mahiru, desde su promesa de infancia hasta el final." },
       { fecha: "2026-11-23", texto: "Terminados todos los eventos de la academia: la fiesta deportiva, el campamento de las Doncellas y el festival escolar con su cafetería." },
       { fecha: "2026-11-23", texto: "Ya están traducidas las primeras historias de la academia: los Siete misterios de Mahiru, el secreto bajo el despacho del director y el día de San Valentín." },
