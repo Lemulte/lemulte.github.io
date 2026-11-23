@@ -16,6 +16,7 @@ const EN_DESARROLLO = [
     estado: "Traduciendo",
     novedades: [
       { fecha: "2026-11-23", texto: "Ya está en castellano la ruta completa de Tarua, la cartera más rápida (y más torpe) de Granvania." },
+      { fecha: "2026-11-23", texto: "¡Ya están en español los tres primeros capítulos de la historia, con el banquete, la fiesta sorpresa y el primer ataque a la ciudad!" },
       { fecha: "2026-11-23", texto: "¡Prólogo y capítulo 1 en español! Ya se puede conocer a las 12 Doncellas Estelares traducidas." },
       { fecha: "2026-11-23", texto: "¡El prólogo ya está en español! La historia empieza a poder jugarse traducida." },
       { fecha: "2026-11-23", texto: "¡Terminados todos los menús, objetos, técnicas y laberintos! El siguiente paso es la historia." },
