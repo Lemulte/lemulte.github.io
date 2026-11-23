@@ -224,6 +224,7 @@ if (form) {
         })
       });
       const data = await r.json().catch(() => ({}));
+      if (/activat/i.test(data.message || '')) { status.textContent = 'El formulario aún no está activado. Si eres Lemulte, revisa tu Gmail y pulsa «Activate Form».'; status.classList.add('err'); return; }
       if (!r.ok || data.success === 'false' || data.success === false) throw new Error(data.message || r.status);
       form.reset(); nuevaPregunta();
       status.textContent = '¡Mensaje enviado! Te responderé a tu correo lo antes posible.'; status.classList.add('ok');
