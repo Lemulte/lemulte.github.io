@@ -152,3 +152,83 @@ document.querySelectorAll('.project-card').forEach(async card => {
   cover.classList.add('clickable');
   cover.addEventListener('click', () => abrir(fotos, t));
 });
+
+/* =========================================================
+   PENDIENTES — juegos pedidos por la comunidad y tus pendientes.
+   estado: "Pedido", "En estudio" o "Traduciendo"
+   Ejemplo:
+   { juego: "Persona 2", plataforma: "PSP", estado: "Pedido" }
+   ========================================================= */
+const PENDIENTES = {
+  comunidad: [],
+  mios: []
+};
+
+const ESTADOS = { 'Pedido': 'st-pedido', 'En estudio': 'st-estudio', 'Traduciendo': 'st-traduciendo' };
+document.querySelectorAll('.pending-grid').forEach(grid => {
+  const lista = PENDIENTES[grid.dataset.list] || [];
+  if (!lista.length) {
+    grid.innerHTML = grid.dataset.list === 'comunidad'
+      ? '<p class="pending-empty">Todavía no hay peticiones. ¡Sé el primero en pedir un juego!</p>'
+      : '<p class="pending-empty">Muy pronto anunciaré aquí los juegos que tengo en mente.</p>';
+    return;
+  }
+  lista.forEach(j => {
+    const d = document.createElement('div');
+    d.className = 'pending-card';
+    d.innerHTML = `<span class="pending-platform"></span><b></b><span class="pending-status ${ESTADOS[j.estado] || 'st-pedido'}"></span>`;
+    d.querySelector('.pending-platform').textContent = j.plataforma || '';
+    d.querySelector('b').textContent = j.juego;
+    d.querySelector('.pending-status').textContent = j.estado || 'Pedido';
+    grid.appendChild(d);
+  });
+});
+
+/* =========================================================
+   CONTACTO — los mensajes llegan a tu Gmail a través de FormSubmit.
+   La primera vez que alguien envíe el formulario te llegará un correo
+   de FormSubmit para "Activar": púlsalo y desde entonces llegan solos.
+   ========================================================= */
+const CORREO = 'lemulte@gmail.com';
+const form = document.getElementById('contact-form');
+if (form) {
+  const dl = document.getElementById('lista-juegos');
+  document.querySelectorAll('.project-card h3').forEach(h => { const o = document.createElement('option'); o.value = h.textContent; dl.appendChild(o); });
+  let a = 0, b = 0;
+  const nuevaPregunta = () => { a = 2 + Math.floor(Math.random() * 8); b = 1 + Math.floor(Math.random() * 9); document.getElementById('captcha-q').textContent = `¿Cuánto es ${a} + ${b}?`; };
+  nuevaPregunta();
+  document.querySelectorAll('[data-pedir]').forEach(el => el.addEventListener('click', () => {
+    form.motivo.value = 'Petición de un juego';
+    form.juego.value = '';
+    setTimeout(() => form.juego.focus(), 500);
+  }));
+  const status = form.querySelector('.form-status');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    status.className = 'form-status';
+    const email = form.email.value.trim(), juego = form.juego.value.trim(), mensaje = form.mensaje.value.trim();
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { status.textContent = 'Escribe un correo válido para poder responderte.'; status.classList.add('err'); form.email.focus(); return; }
+    if (!juego) { status.textContent = 'Indica el título del juego.'; status.classList.add('err'); form.juego.focus(); return; }
+    if (mensaje.length < 5) { status.textContent = 'Escribe tu mensaje.'; status.classList.add('err'); form.mensaje.focus(); return; }
+    if (parseInt(form.captcha.value, 10) !== a + b) { status.textContent = 'La respuesta anti-robots no es correcta.'; status.classList.add('err'); nuevaPregunta(); form.captcha.value = ''; form.captcha.focus(); return; }
+    if (form._honey.value) return;
+    const btn = form.querySelector('button'); btn.disabled = true; btn.textContent = 'Enviando…';
+    try {
+      const r = await fetch(`https://formsubmit.co/ajax/${CORREO}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: `[Lemulte] ${form.motivo.value} — ${juego}`,
+          _replyto: email, _template: 'table', _captcha: 'false',
+          Correo: email, Motivo: form.motivo.value, Juego: juego, Mensaje: mensaje
+        })
+      });
+      const data = await r.json().catch(() => ({}));
+      if (!r.ok || data.success === 'false' || data.success === false) throw new Error(data.message || r.status);
+      form.reset(); nuevaPregunta();
+      status.textContent = '¡Mensaje enviado! Te responderé a tu correo lo antes posible.'; status.classList.add('ok');
+    } catch (err) {
+      status.innerHTML = 'No se ha podido enviar. Escríbeme directamente a <a href="mailto:' + CORREO + '">' + CORREO + '</a>.'; status.classList.add('err');
+    } finally { btn.disabled = false; btn.textContent = 'Enviar mensaje'; }
+  });
+}

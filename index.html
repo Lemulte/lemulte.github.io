@@ -43,8 +43,9 @@
     <nav class="nav">
       <a href="#traducciones">Traducciones</a>
       <a href="#en-desarrollo">En desarrollo</a>
-      <a href="#proceso">Cómo trabajo</a>
+      <a href="#pendientes">Pendientes</a>
       <a href="#sobre-mi">Sobre Lemulte</a>
+      <a href="#contacto">Contacto</a>
       <a class="nav-support" href="https://ko-fi.com/lemulte" target="_blank" rel="noopener">Apoyar el proyecto ↗</a>
     </nav>
   </header>
@@ -122,6 +123,16 @@
       </div>
     </section>
 
+    <section class="section pending-section" id="pendientes">
+      <div class="section-heading">
+        <div><div class="eyebrow">LA LISTA</div><h2>JUEGOS <em>PENDIENTES</em></h2></div>
+        <p>Los juegos que me pide la comunidad y los que tengo ganas de traducir. ¿Quieres un juego en castellano? Pídemelo y lo sumo a la lista.</p>
+      </div>
+      <div class="pending-group"><h3>Pedidos por la comunidad</h3><div class="pending-grid" data-list="comunidad"></div></div>
+      <div class="pending-group"><h3>Mis pendientes</h3><div class="pending-grid" data-list="mios"></div></div>
+      <div class="pending-cta"><a class="button button-primary" href="#contacto" data-pedir>Pedir un juego ↓</a><span>Las peticiones se revisan a mano: no todos los juegos se pueden traducir, pero todas se leen.</span></div>
+    </section>
+
     <section class="method-section" id="proceso">
       <div class="method-inner">
         <div><div class="eyebrow">DETRÁS DE CADA PARCHE</div><h2>TRADUCIR.<br><em>REVISAR.</em><br>JUGAR.</h2></div>
@@ -132,6 +143,31 @@
     <section class="about-section section" id="sobre-mi">
       <div class="about-mark"><img src="img/logo-720.webp" alt="Logo de Lemulte" loading="lazy"></div>
       <div class="about-copy"><div class="eyebrow">SOBRE LEMULTE</div><h2>UN NOMBRE.<br><em>MUCHAS HISTORIAS.</em></h2><p>Lemulte es un proyecto personal dedicado a crear y compartir traducciones de videojuegos al castellano. Aquí encontrarás los proyectos terminados, sus actualizaciones y las novedades de los próximos trabajos.</p><div class="about-actions"><a class="button button-primary" href="https://ko-fi.com/lemulte" target="_blank" rel="noopener">Seguir y apoyar en Ko-fi ↗</a><span class="social-slot"></span></div></div>
+    </section>
+      <section class="contact-section" id="contacto">
+      <div class="section contact-inner">
+        <div class="contact-intro">
+          <div class="eyebrow">CONTACTO</div><h2>ESCRÍBEME.<br><em>TE LEO.</em></h2>
+          <p>¿Has encontrado un error en alguna traducción, tienes una duda o quieres pedir un juego? Rellena el formulario y te respondo a tu correo lo antes posible.</p>
+          <p class="contact-direct">También puedes escribirme a <a href="mailto:lemulte@gmail.com">lemulte@gmail.com</a></p>
+        </div>
+        <form class="contact-form" id="contact-form" novalidate>
+          <label>Tu correo <small>(para poder responderte)</small><input type="email" name="email" required placeholder="tucorreo@gmail.com" autocomplete="email"></label>
+          <label>Motivo<select name="motivo">
+            <option>Error en una traducción</option>
+            <option>Petición de un juego</option>
+            <option>Duda o sugerencia</option>
+            <option>Otro</option>
+          </select></label>
+          <label>Juego<input type="text" name="juego" list="lista-juegos" required placeholder="Título del juego"></label>
+          <datalist id="lista-juegos"></datalist>
+          <label>Mensaje<textarea name="mensaje" rows="6" required placeholder="Cuéntame qué has visto, en qué parte del juego, o qué juego te gustaría ver en castellano y en qué plataforma."></textarea></label>
+          <label class="hp" aria-hidden="true">No rellenar<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
+          <label class="captcha">Anti-robots: <span id="captcha-q"></span><input type="text" name="captcha" inputmode="numeric" required></label>
+          <button class="button button-primary" type="submit">Enviar mensaje</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
     </section>
   </main>
 
