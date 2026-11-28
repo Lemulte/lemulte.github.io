@@ -5,16 +5,17 @@
 
 /* EN DESARROLLO
    porcentaje: número de 0 a 100
-   estado: "Empezando", "Traduciendo", "Revisando", "Probando" o "Casi listo"
+   estado: "Empezando", "Traduciendo", "Revisando", "Probando", "Casi listo" o "Completo"
    novedades: la más reciente arriba. fecha en formato "AAAA-MM-DD" */
 const EN_DESARROLLO = [
   {
     juego: "Conception PLUS: Maidens of the Twelve Stars",
     plataforma: "PC · STEAM",
     steam: 906510,
-    porcentaje: 43,
-    estado: "Traduciendo",
+    porcentaje: 100,
+    estado: "Completo",
     novedades: [
+      { fecha: "2026-11-28", texto: "¡Traducción terminada! Conception PLUS ya puede jugarse en español." },
       { fecha: "2026-11-23", texto: "Ya está en castellano la ruta completa de Tarua, la cartera más rápida (y más torpe) de Granvania." },
       { fecha: "2026-11-23", texto: "Terminada la ruta de Arie, la Doncella de Aries, con su gran secreto escondido en la sala prohibida de la iglesia." },
       { fecha: "2026-11-23", texto: "Ruta de Mahiru completa en castellano, con todas sus citas, mensajes y eventos especiales." },

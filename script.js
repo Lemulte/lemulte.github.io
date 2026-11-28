@@ -233,7 +233,7 @@ if (form) {
   EN_DESARROLLO.forEach(p => {
     const pct = Math.max(0, Math.min(100, Number(p.porcentaje) || 0));
     const card = document.createElement('article');
-    card.className = 'dev-card';
+    card.className = 'dev-card' + (pct >= 100 ? ' is-done' : '');
     card.innerHTML = `
       ${p.steam ? `<img class="dev-img" alt="" src="https://shared.steamstatic.com/store_item_assets/steam/apps/${p.steam}/header.jpg">` : ''}
       <div class="dev-body">

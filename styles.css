@@ -114,3 +114,4 @@ body{overflow-x:clip}
 .dev-news time{color:#8d898c;font-variant-numeric:tabular-nums}
 .pending-img{width:calc(100% + 32px);margin:-16px -16px 4px;display:block;aspect-ratio:460/215;object-fit:cover;border-radius:3px 3px 0 0}
 @media(max-width:800px){.dev-card{grid-template-columns:1fr}.dev-img{min-height:0;aspect-ratio:460/215}.dev-body{padding:18px}.dev-news li{grid-template-columns:1fr;gap:0}}
+.dev-card.is-done .dev-status{color:#0b0b0d;background:#6fe39a;border-color:#6fe39a}.dev-card.is-done .dev-bar span{background:linear-gradient(90deg,#1f9a52,#6fe39a);box-shadow:0 0 14px #6fe39a88}
