@@ -70,8 +70,9 @@ document.getElementById('year').textContent = new Date().getFullYear();
 document.querySelectorAll('.cover[data-img]').forEach(cover => {
   const exts = ['jpg', 'png', 'webp', 'jpeg'];
   const intentar = i => {
-    if (i >= exts.length) return;
-    const url = `img/${cover.dataset.img}.${exts[i]}`;
+    if (i > exts.length) return;
+    const url = i === exts.length ? cover.dataset.src : `img/${cover.dataset.img}.${exts[i]}`;
+    if (!url) return;
     const im = new Image();
     im.onload = () => { cover.style.backgroundImage = `url("${url}")`; cover.classList.add('has-img'); };
     im.onerror = () => intentar(i + 1);
